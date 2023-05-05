@@ -1,0 +1,161 @@
+<div class="container"> 
+  
+  <div class="row">
+    <div class="col-md-8">
+
+      <div class="bg-info p-4 text-center">
+      <h1>Contact Our<br>Customer Support Center <img src="assets\img\abc.jpg"  width="304" height="236"> </h1>
+    </div>
+      
+   
+      <div class="bg-info p-4 text-center">
+      <h2>     Contact Information <br></h2>
+      <h3>Please fill out your contact information below</h3>
+    </div>
+    <form [formGroup]="signupForm" (ngSubmit)="handleSubmit()">
+         
+         <div class="form-group">
+          
+            <label for="" class="required">First Name</label>
+            <input type="text"  [class.is-invalid]="f['firstname'].invalid && f['firstname'].touched" name="firstname" class="form-control" formControlName="firstname">
+
+            <div class="alert alert-danger" *ngIf="f['firstname'].invalid && f['firstname'].touched">
+              <div *ngIf="f['firstname'].errors && f['firstname'].errors['required']">
+                     First Name Is Required
+              </div>
+
+              <div *ngIf="f['firstname'].errors && f['firstname'].errors['pattern']">
+                It Contains only alphabates
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+          
+            <label for="" class="required">Last Name</label>
+            <input type="text"   [class.is-invalid]="f['lastname'].invalid && f['lastname'].touched" name="lastname" class="form-control" formControlName="lastname">
+
+            <div class="alert alert-danger" *ngIf="f['lastname'].invalid && f['lastname'].touched">
+              <div *ngIf="f['lastname'].errors && f['lastname'].errors['required']">
+                     Last Name Is Required
+              </div>
+
+              <div *ngIf="f['lastname'].errors && f['lastname'].errors['pattern']">
+                It Contains only alphabates
+              </div>
+
+            </div>
+                    
+          </div>
+       
+
+          <div class="form-group">
+            <label for="" class="required">Email</label>
+            <input type="email"   [class.is-invalid]="f['email'].invalid && f['email'].touched" name="email" class="form-control" formControlName="email">
+
+            <div class="alert alert-danger" *ngIf="f['email'].invalid && f['email'].touched">
+             <div *ngIf="f['email'].errors && f['email'].errors['required']">
+                      Email Is Required
+              </div>  
+  
+              <div *ngIf="f['email'].errors && f['email'].errors['email']">
+                Invalid Email
+
+                </div>
+        </div>
+
+
+          </div>
+
+          <div class="form-group">
+            <label for="" class="required">Phone</label>
+            <input type="number"  [class.is-invalid]="f['phone'].invalid && f['phone'].touched" name="phone" class="form-control" formControlName="phone">
+
+            <div class="alert alert-danger" *ngIf="f['phone'].invalid && f['phone'].touched">
+              <div *ngIf="f['phone'].errors && f['phone'].errors['required']">
+                      Phone Is Required
+              </div>
+
+              <div *ngIf="f['phone'].errors && f['phone'].errors['pattern']">
+                Should contains only 10 digits
+              </div>
+
+           </div>
+          </div>
+
+          <div class="form-group">
+            <label for="" class="required">City</label>
+            <input type="text" [class.is-invalid]="f['city'].invalid && f['city'].touched" name="city" class="form-control" formControlName="city">
+
+            <div class="alert alert-danger" *ngIf="f['city'].invalid && f['city'].touched">
+              <div *ngIf="f['city'].errors && f['city'].errors['required']">
+                      City Is Required
+              </div>
+
+              <div *ngIf="f['city'].errors && f['city'].errors['pattern']">
+                It should contain minimum 4 alphabates
+              </div>
+
+            </div>
+
+
+          </div>
+
+          <div class="form-group">
+            <label for="" class="required">State</label>
+            <select formControlName="state" class="form-control">
+              <option value="">Select a state</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+            </select>
+          </div>
+         
+          <div class="form-group">
+            <label for="" class="required">Zip Code</label>
+            <input type="number"  [class.is-invalid]="f['zipcode'].invalid && f['zipcode'].touched" name="zipcode" class="form-control" formControlName="zipcode">
+
+
+            <div class="alert alert-danger" *ngIf="f['zipcode'].invalid && f['zipcode'].touched">
+              <div *ngIf="f['zipcode'].errors && f['zipcode'].errors['required']">
+                      Phone Is Required
+              </div>
+
+              <div *ngIf="f['zipcode'].errors && f['zipcode'].errors['pattern']">
+                Should contains only 5 digits
+              </div>
+
+           </div>
+
+
+          </div>
+
+          <div class="form-group">
+             <label for="" class="required">Comments</label>
+         
+             <textarea class="required" rows="5" cols="30" [class.is-invalid]="f['comment'].invalid && f['comment'].touched" class="form-control" formControlName="comment"><br><br> </textarea>
+
+             <div class="alert alert-danger" *ngIf="f['comment'].invalid && f['comment'].touched">
+              <div *ngIf="f['comment'].errors && f['comment'].errors['required']">
+                      Comment is required
+              </div>
+  
+              <div *ngIf="f['comment'].errors && f['comment'].errors['minlength']">
+                Comment should 30 Charactors Minimum
+              </div>
+             
+           </div>
+          
+         </div>
+
+          <br>
+          <div class="d-grid">
+            <input type="submit"  [class.disabled]="signupForm.invalid" value="Submit Form" class="btn btn-primary">
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
